@@ -5,7 +5,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.pool import StaticPool
 
-# Importiamo la tua app, la Base dei modelli e la dipendenza del DB
+
 from main import app
 from app.db.dbconfig import Base, get_db
 
@@ -32,7 +32,6 @@ def session_fixture():
 
 @pytest.fixture(name="client")
 def client_fixture(session):
-    # passiamo la fixture anziche' usare la funzione originale
     def override_get_db():
         try:
             yield session
@@ -41,7 +40,6 @@ def client_fixture(session):
             
     app.dependency_overrides[get_db] = override_get_db
     yield TestClient(app)
-    # Finiti i test, puliamo le sostituzioni dell'app
     app.dependency_overrides.clear()
 
 
@@ -63,7 +61,7 @@ def test_full_auth_flow(client):
     assert response_reg.status_code == 201
     data_reg = response_reg.json()
     assert data_reg["username"] == "testuser"
-    assert "password" not in data_reg  # Verifichiamo che la password sia effettivamente nascosta
+    assert "password" not in data_reg  # Verifico che la password sia effettivamente nascosta
     assert "id" in data_reg
 
     # LOGIN
@@ -103,7 +101,8 @@ def test_full_auth_flow(client):
 
 # NO USER DUPLICATI
 def test_register_duplicate_username(client):
-    # mail diversa allora username uguale non accettabile.
+    # mail diversa allora username uguale non accettabile. verifico che il primo giro
+    # vada bene, il secondo no.
     user_data = {"username": "nomedoppio", "email": "1@ex.com", "password": "123"}
     
     # Primo inserimento
