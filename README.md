@@ -9,7 +9,7 @@ Step 2.5: prepare the .env file in app/core/.env
 `.env.boilerplate` guides you in the fields required to compile the file
 NOTE: place the file **exactly** in app/core/.env
 
-step 3: launch the app with the following command
+step 3: get into the folder and then launch the app with the following command
 `uv run uvicorn main:app --reload`
 
 the app runs locally, therefore
