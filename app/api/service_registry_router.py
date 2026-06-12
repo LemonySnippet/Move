@@ -8,7 +8,7 @@ registry = APIRouter()
 
 @registry.post("/service/register", response_model=schema.ServiceResponse, status_code=status.HTTP_201_CREATED)
 def register_protected_service(service_in: schema.ServiceCreate, db: Session = Depends(get_db)):
-    """Censisce un nuovo servizio protetto nel sistema."""
+    #Censisce un nuovo servizio protetto nel sistema.
     db_service = db.query(models.ProtectedService).filter(
         models.ProtectedService.name == service_in.name
     ).first()
