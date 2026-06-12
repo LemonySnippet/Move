@@ -31,7 +31,7 @@ def user_login(form_data: OAuth2PasswordRequestForm = Depends(),
         data={"sub": user.username}
     )
     
-    # 4. Restituiamo lo standard OAuth2: il token e il tipo di token (Bearer)
+    # Restituiamo lo standard OAuth2: il token e il tipo di token (Bearer)
     return {"access_token": access_token, "token_type": "bearer"}
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="auth/login")
