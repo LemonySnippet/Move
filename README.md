@@ -1,28 +1,27 @@
 # SETUP
-1) install uv (I used it during development)
-`curl -LsSf https://astral.sh/uv/install.sh | sh`
+1) install uv (I used it during development) \
+`curl -LsSf https://astral.sh/uv/install.sh | sh` 
 
-step 2: clone this repo
+2) clone this repo \
 `git clone (...)`
-
-Step 2.5: prepare the .env file in app/core/.env
+prepare the .env file in app/core/.env
 `.env.boilerplate` guides you in the fields required to compile the file
-NOTE: place the file **exactly** in app/core/.env
+NOTE: place the file **exactly** in app/core/.env \
 
-step 3: get into the folder and then launch the app with the following command
-`uv run uvicorn main:app --reload`
+3) get into the folder and then launch the app with the following command \
+`uv run uvicorn main:app --reload` 
 
 the app runs locally, therefore
 
-step 4: open a browser and visit the swagger at
+4) open a browser and visit the swagger at \
 `localhost:8000/docs`
 
-You can now test the endpoints.
+You can now test the endpoints. Via the swagger you can also retrieve the equivalent curl commands
 
-step 5: if you want to run the tests, please use the following
-`sudo apt install python3-pytest`
-`cd Move`
-`PYTHONPATH=. uv run pytest`
+5) if you want to run the tests, please use the following \
+`sudo apt install python3-pytest` 
+`cd Move` 
+`PYTHONPATH=. uv run pytest` 
 
 # DESIGN CHOICES
 python: comfortable enough for efficient backend systems + lots of libraries already available with prod-grade code
