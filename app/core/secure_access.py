@@ -37,10 +37,10 @@ def generate_jwt(data: dict, expires_delta: Optional[timedelta] = None) -> str:
     else:
         expire = datetime.now(timezone.utc) + timedelta(minutes=token_expires_after)
     
-    # Inseriamo la scadenza nel payload del token (il campo standard è 'exp')
+    # Inserisco la scadenza nel payload del token (il campo standard è 'exp')
     to_encode.update({"exp": expire})
     
-    # Firmiamo il token usando la nostra chiave
+    # Firmo il token usando la nostra chiave
     encoded_jwt = jwt.encode(to_encode, token_key, algorithm=token_encode_algo)
     return encoded_jwt
 
