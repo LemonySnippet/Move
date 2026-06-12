@@ -1,5 +1,5 @@
 # SETUP
-step 1: install uv
+1) install uv (I used it during development)
 `curl -LsSf https://astral.sh/uv/install.sh | sh`
 
 step 2: clone this repo
@@ -19,7 +19,7 @@ step 4: open a browser and visit the swagger at
 
 You can now test the endpoints.
 
-step 5: if you want to run tests, please use the following
+step 5: if you want to run the tests, please use the following
 `sudo apt install python3-pytest`
 `cd Move`
 `PYTHONPATH=. uv run pytest`
@@ -27,9 +27,9 @@ step 5: if you want to run tests, please use the following
 # DESIGN CHOICES
 python: comfortable enough for efficient backend systems + lots of libraries already available with prod-grade code
 
-fastAPI: standard choice, native swagger, native async management (even though for this mock was not fundamental, in production it should become necessary)
+fastAPI: standard choice for efficient APIs, native swagger, native async support (even though for this mock was not strictly needed, in production it smay become a good feature.
 
-SQLite: quick prototyping, assignment specified that the build had not to be production-ready
+SQLite: quick prototyping, assignment specified that the build had not to be production-ready so other possible choices (such as PostGRESQL would have been overkill)
 
 JWT: Stateless approach, quick to sketch and ideal for services that will become micro-services
 
